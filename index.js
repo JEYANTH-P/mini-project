@@ -85,8 +85,30 @@ const validateInputs = () => {
     } */
 
 };
+const validatePass = () => {
+    const passwordValue = password.value.trim();
+  
+    if (passwordValue.length < 8) {
+      setError(password, 'Password must be at least 8 characters.');
+    } else if (!/\d/.test(passwordValue)) {
+      setError(password, 'Password must contain at least one digit.');
+    } else if (!/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(passwordValue)) {
+      setError(password, 'Password must contain at least one special character.');
+    } else {
+      setSuccessp(password,"Password is strong");
+    }
+  };
+  const setSuccessp = (element,message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
 
-
+    errorDisplay.innerText = message;
+    inputControl.classList.remove('error');
+    inputControl.classList.add('success');
+    errorDisplay.classList.remove('error');
+    errorDisplay.classList.add('success');
+};
+setInterval(validatePass, 1);
 
 
 
