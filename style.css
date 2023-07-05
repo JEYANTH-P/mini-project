@@ -118,10 +118,10 @@ button{
 
 @keyframes red-glow {
     0%{
-        box-shadow: 0 0 5px #f64747;
+        text-shadow: 0 0 5px #f64747;
     }
     100%{
-        box-shadow:0 0 20px #9b0000;
+        text-shadow:0 0 20px #9b0000;
     }
     
 }
@@ -132,10 +132,10 @@ button{
 
 @keyframes green-glow {
     0%{
-        box-shadow: 0 0 5px #74fc78;
+        text-shadow: 0 0 5px #00ff08;
     }
     100%{
-        box-shadow:0 0 20px #00b93a;
+        text-shadow:0 0 20px #01eb4b;
     }
     
 }
