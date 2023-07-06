@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family:"Roboto" sans-serif;
+}
+#search{
+    width: 70%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+.contain{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+.img-container:hover{
+    border: 2px solid #222;
+}
+.signin{
+    font-size: 25px;
+}
