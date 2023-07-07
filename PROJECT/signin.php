@@ -8,6 +8,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="signin_login.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -108,7 +109,11 @@ if($count1===0 && $count2===0){
                 document.getElementById('mobile').parentElement.classList.remove("error");
                 document.getElementById('email').parentElement.querySelector('.error').innerText="";
                 document.getElementById('mobile').parentElement.querySelector('.error').innerText=""; 
-                alert('success')</script><?php
+                Swal.fire(
+                    'WELCOME!',
+                    'An account has been Created',
+                    'success'
+                    )</script><?php
 }               
 
 else if($count1>0){
