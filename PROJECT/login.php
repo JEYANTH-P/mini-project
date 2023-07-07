@@ -19,14 +19,6 @@
                 <header>
                     <h1 class="neon-text">WELCOME BACK</h1>
                 </header>
-                <!-- <p>
-                    <label for="name"><b>Your Name</b></label>
-                    <input type="text" id="name" name="name">
-                </p> -->
-                <!-- <p>
-                    <label for="mobile"><b>Mobile Number</b></label>
-                    <input type="tel" id="mobile" name="mobile">
-                </p> -->
                 
                 <p>
                     <label for="email"><b>Email</b></label>

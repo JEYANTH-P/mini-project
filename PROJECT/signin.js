@@ -5,8 +5,10 @@ const password = document.getElementById('password');
 const mobile = document.getElementById('mobile');
 
 form.addEventListener('submit', e => {
-    /* e.preventDefault(); */
-    validateInputs();
+    e.preventDefault();
+    if (validateInputs() && password.parentElement.classList.contains('success')) {
+        form.submit();
+    }
 });
 
 const setError = (element, message) => {
@@ -14,11 +16,6 @@ const setError = (element, message) => {
     const errorDisplay = inputControl.querySelector('.error');
 
     if (errorDisplay) {
-      /* if (!errorDisplay) { 
-        errorDisplay.innerText = message;
-        errorDisplay.classList.remove('success');
-        errorDisplay.classList.add('error');
-       } */
         errorDisplay.innerText = message;
         inputControl.classList.add('error');
         inputControl.classList.remove('success');
@@ -36,10 +33,6 @@ const setSuccess = element => {
     }
 };
 
-
-
-/* console.log(flag); */
-
 const isValidEmail = email => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -51,6 +44,8 @@ const isValidMobile = mobile => {
 };
 
 const validateInputs = () => {
+    let isValid = true;
+    
     const usernameValue = username.value.trim();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
@@ -58,25 +53,32 @@ const validateInputs = () => {
 
     if (usernameValue === '') {
         setError(username, 'Username is required');
+        isValid = false;
     } else {
         setSuccess(username);
     }
 
     if (mobileValue === '') {
         setError(mobile, 'Mobile Number is required');
+        isValid = false;
     } else if (!isValidMobile(mobileValue)) {
         setError(mobile, 'Provide a valid mobile number');
+        isValid = false;
     } else {
         setSuccess(mobile);
     }
 
     if (emailValue === '') {
         setError(email, 'Email is required');
+        isValid = false;
     } else if (!isValidEmail(emailValue)) {
         setError(email, 'Provide a valid email address');
+        isValid = false;
     } else {
         setSuccess(email);
     }
+
+    return isValid;
 };
 
 const validatePass = () => {
@@ -93,21 +95,6 @@ const validatePass = () => {
     }
 };
 
-/* const setSuccessp = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    if (errorDisplay) {
-          if (errorDisplay) {
-            errorDisplay.innerText = message;
-            errorDisplay.classList.remove('error');
-            errorDisplay.classList.add('success');
-        }
-        inputControl.classList.remove('error');
-        inputControl.classList.add('success');
-    }
-}; */
-
 password.addEventListener('keyup', e => {
     const key = e.key;
     if (key === 'Backspace') {
@@ -116,27 +103,3 @@ password.addEventListener('keyup', e => {
 });
 
 setInterval(validatePass, 500);
-
-
-/* setInterval(repeat(flag),1000);
-
-
-function repeat(flag){
-    
-    var elements = [username, email, password, mobile];
-    elements.forEach((element) => {
-        const inputControl = element.parentElement;
-        if (inputControl.classList.contains('success')) {
-            flag++;
-        }
-        else{
-            flag--;
-        }
-});
-
-console.log(flag);
-} */
-
-
-
-
