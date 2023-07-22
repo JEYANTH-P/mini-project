@@ -10,6 +10,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="homepage.css">
+    <script src="signin.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
             </div>
 
             <div class="nav-cart border">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-cart-shopping"><span class="cart-number">0</span></i>
                 Cart
             </div>
         </div>

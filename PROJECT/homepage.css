@@ -503,3 +503,10 @@ li {
     position: relative;
     left: 10px;
 }
+.cart-number{
+    position: relative;
+    bottom: 12px;
+    color: rgb(233, 30, 51);
+    right: 20px;
+    font-size: 15px;
+}
