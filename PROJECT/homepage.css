@@ -404,3 +404,102 @@ li {
             0 0 75px #ff00de;
     }
 }
+
+/* .hero-section ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to top right, rgb(84, 30, 170), rgb(2, 2, 40));
+    position: relative;
+    bottom: 18.3em;
+    width: 100%;
+}
+
+.hero-section li{
+    float: left;
+}
+
+.hero-section li a{
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.hero-section li a:hover{
+    background: linear-gradient(to top left, rgb(84, 30, 170), rgba(2, 2, 40, 0.662));
+} */
+
+.display-section{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e2e7e6;
+    flex-wrap: wrap;
+    background: linear-gradient(to top left, rgb(84, 30, 170), rgba(2, 2, 40, 0.662));
+}
+
+.container {
+    /* border: 2px solid black; */
+    height: 410px;
+    width: 20%;
+    background-color: white;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #AB90EF;
+}
+
+.container-img {
+    height: 280px;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.display-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.cloth-name{
+    font-size: 25px;
+    font-weight: 750;
+    color: #7D4A4A;
+}
+
+.prize{
+    font-size: 20px;
+    color: #E6EF69;
+}
+
+.category{
+    font-size: 28px;
+    font-weight: 799;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 6em;
+    left: 3em;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 9em;
+}
+.button-container button{
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: coral;
+}
+.button-container button:hover{
+    background-color: crimson;
+    cursor: pointer;
+}
+.details{
+    position: relative;
+    left: 10px;
+}
