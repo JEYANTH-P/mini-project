@@ -10,7 +10,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="homepage.css">
-    <script src="cart.js"></script>
+    
 </head>
 
 <body>
@@ -66,9 +66,9 @@
                 <p class="nav-second">& Orders</p>
             </div>
 
-            <div class="nav-cart border">
-                <i class="fa-solid fa-cart-shopping"><span class="cart-number" id="cart">0</span></i>
-                Cart
+            <div class="nav-cart border"><a href="cart.php">
+                <i class="fa-solid fa-cart-shopping"><span class="cart-number"  id="cart">0</span></i>
+                Cart</a>
             </div>
         </div>
         <div class="panel border">
@@ -88,6 +88,7 @@
             </div>
         </div>
     </header>
+    <script src="cart.js"></script>
 </body>
 
 </html>
@@ -112,14 +113,48 @@ if ($run_query->num_rows) {
             </div>
             <div class="button content">
                 <div class="button-container">
-                    <button class="cart-button" onclick="add_cart()">Add to cart</button>
+                    <form action="additem.php" method="post" class="add-to-cart-form">
+                    <input type="hidden" name="image" value="' . $img . '">
+                    <input type="hidden" name="name" value="' . $name . '">
+                    <input type="hidden" name="prize" value="' . $prize . '">
+                        <button type="submit" class="cart-button" onclick="add_cart()">Add to cart</button>
+                    </form>
                     <button class="free-look">Free look</button>
                 </div>
             </div>
+            
         </div>';
     }
 }
 echo '</div>';
+?>
+
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $img = $_POST['image'] ?? '';
+        $name = $_POST['name'] ?? '';
+        $prize = $_POST['prize'] ?? '';
+
+        $host= 'localhost';
+        $username='root';
+        $password1='';
+        $dbname='coders';   
+
+        
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password1);
+
+        /* $stmt = $pdo->prepare("SELECT quantity FROM cart WHERE  (image, name, prize) VALUES (:image, :name, :prize)"); */
+
+        $stmt = $pdo->prepare("INSERT INTO cart (image, name, prize,quantity) VALUES (:image, :name, :prize,1) ON DUPLICATE KEY UPDATE quantity = quantity + 1");
+        
+        
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':image', $img);
+        $stmt->bindParam(':prize', $prize);
+                
+                
+        $stmt->execute();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -190,5 +225,6 @@ echo '</div>';
             </div>
         </div>
     </footer>
+    
 </body>
 </html>

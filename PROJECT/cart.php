@@ -39,10 +39,12 @@
                     <option value="">Beauty picks</option>
                     <option value="">Health and personal care</option>
                 </select>
-                <input class="search-input" type="text" placeholder="Search Amazon">
+                <form action="search.php" method="post"></form>
+                <input class="search-input" type="text" placeholder="Search Amazon" name="keywords">
                 <div class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
+                </form>
             </div>
             <div class="nav-flag">
                 <div>
@@ -64,10 +66,15 @@
                 <p class="nav-second">& Orders</p>
             </div>
 
-            <div class="nav-cart border">
+            <!-- <div class="nav-cart border">
                 <i class="fa-solid fa-cart-shopping"></i>
                 Cart
+            </div> -->
+            <div class="nav-cart border"><a href="cart.php">
+                <i class="fa-solid fa-cart-shopping"><span class="cart-number"  id="cart">0</span></i>
+                Cart</a>
             </div>
+
         </div>
         <div class="panel border">
             <div class="panel-all">
@@ -111,7 +118,7 @@
                     <input type="hidden" name="image" value="' . $img . '">
                     <input type="hidden" name="name" value="' . $name . '">
                     <input type="hidden" name="prize" value="' . $prize . '">
-                        <button type="submit" class="cart-button">Remove from cart</button>
+                        <button type="submit" class="cart-button" onclick="removeCart()">Remove from cart</button>
                     </form>
                     <button class="free-look">Free look</button>
                 </div>
@@ -123,12 +130,14 @@
         echo '</div>';
         ?>
 
+        <script src="cart.js"></script>
+
     </body>
 
 </html>
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $img = $_POST['image'] ?? '';
+        /* $img = $_POST['image'] ?? '';
         $name = $_POST['name'] ?? '';
         $prize = $_POST['prize'] ?? '';
 
@@ -140,7 +149,7 @@
         
         $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password1);
 
-        $stmt = $pdo->prepare("DELETE FROM cart WHERE image=:image AND name=:name AND prize=:prize;");
+        $stmt = $pdo->prepare("DELETE FROM cart WHERE image=:image AND name=:name AND prize=:prize");
         
     
         $stmt->bindParam(':name', $name);
@@ -152,6 +161,64 @@
             // Redirect back to the same page after the delete operation
             echo "<script>window.location.href = window.location.href;</script>";
             exit();
+        } */
+        $img = $_POST['image'] ?? '' ;
+        $name = $_POST['name'] ?? '' ;
+        $prize = $_POST['prize'] ?? '' ;
+
+        $host= 'localhost';
+        $username='root';
+        $password1='';
+        $dbname='coders';
+
+        
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password1);
+
+        // Prepare the query to fetch the current quantity for the given image, name, and prize
+        $fetchQuery = "SELECT quantity FROM cart WHERE image = :image AND name = :name AND prize = :prize";
+
+        // Prepare the statement for fetching the quantity
+        $fetchStmt = $pdo->prepare($fetchQuery);
+
+        // Bind the parameters to the placeholders for fetching the quantity
+        $fetchStmt->bindParam(':image', $img, PDO::PARAM_STR);
+        $fetchStmt->bindParam(':name', $name, PDO::PARAM_STR);
+        $fetchStmt->bindParam(':prize', $prize, PDO::PARAM_INT);
+
+        // Execute the fetch query
+        $fetchStmt->execute();
+
+        // Fetch the quantity from the result
+        $row = $fetchStmt->fetch(PDO::FETCH_ASSOC);
+        $currentQuantity = $row['quantity'] ?? 0;
+
+        // Check if the current quantity is less than 2
+        if ($currentQuantity < 2) {
+            // If the quantity is less than 2, delete the row
+            $deleteQuery = "DELETE FROM cart WHERE image = :image AND name = :name AND prize = :prize";
+            $deleteStmt = $pdo->prepare($deleteQuery);
+            $deleteStmt->bindParam(':image', $img, PDO::PARAM_STR);
+            $deleteStmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $deleteStmt->bindParam(':prize', $prize, PDO::PARAM_INT);
+            
+            if ($deleteStmt->execute()) {
+                // Redirect back to the same page after the delete operation
+                echo "<script>window.location.href = window.location.href;</script>";
+                exit();
+            } 
+        } else {
+            // If the quantity is 2 or more, decrement the quantity by one
+            $decrementQuery = "UPDATE cart SET quantity = quantity - 1 WHERE image = :image AND name = :name AND prize = :prize";
+            $decrementStmt = $pdo->prepare($decrementQuery);
+            $decrementStmt->bindParam(':image', $img, PDO::PARAM_STR);
+            $decrementStmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $decrementStmt->bindParam(':prize', $prize, PDO::PARAM_INT);
+            $decrementStmt->execute();
+            if ($decrementStmt->execute()) {
+                // Redirect back to the same page after the delete operation
+                echo "<script>window.location.href = window.location.href;</script>";
+                exit();
+            } 
         }
     
     }
