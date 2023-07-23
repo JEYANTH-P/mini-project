@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="homepage.css">
+    
 </head>
 
 <body>
@@ -27,7 +27,6 @@
                 </div>
 
             </div>
-            <form action="search.php" method="post">
             <div class="nav-search">
                 <select class="search-select" name="" id="">
                     <option value="">All</option>
@@ -42,13 +41,10 @@
                     <option value="">Beauty picks</option>
                     <option value="">Health and personal care</option>
                 </select>
-                
-                <input class="search-input" type="text" placeholder="Search Amazon" name="keywords">
-                <button class="search-icon" type="submit">
+                <input class="search-input" type="text" placeholder="Search Amazon">
+                <div class="search-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-                
+                </div>
             </div>
             <div class="nav-flag">
                 <div>
@@ -81,12 +77,10 @@
                 All
             </div>
             <div class="panel-ops">
-                <div class="dropdown">
-                <p class="border">Clothes</p>
-                <div class="dropdown-content" >
-                    <a href="additem.php">Mens</a>
-                    <a href="women.php">Womens</a>
-                    <a href="kid.php">Kids</a>
+            <div class="dropdown-content" >
+                    <a href="">Mens</a>
+                    <a href="">Womens</a>
+                    <a href="">Kids</a>
                 </div>
                 </div>
                 <div class="dropdown">
@@ -106,123 +100,102 @@
                 </div>
                 </div>
                 <div class="dropdown">
-                <a href="book.php" style="color: white;"><p class="border">Books</p></a>
+                <p class="border">Books</p>
+                <div class="dropdown-content" style="left: 39em;">
+                    <a href="">Horror</a>
+                    <a href="">Horror</a>
+                    <a href="">Horror</a>
+                </div>
                 </div>
             </div>
         </div>
     </header>
+    <script src="cart.js"></script>
+</body>
 
-    <div class="hero-section">
-        <div class="msg neon-text">hello</div>
-        <div class="hero-message">
-            <p>You are on amazon.com. You can also shop on Amazon India for millions of products with fast local
-                delivery. <a href="">Click here to go to amazon.in</a></p>
-
-        </div>
-    </div>
-
-    <div class="shop-section">
-        <div class="box1 box">
-            <div class="box-content">
-                <h2>Clothes</h2><a href="additem.php">
-                <div class="box-img" style="background-image: url(./imgs/box1_image.jpg);"></div>
-                </a><a href="">
-                <a href="additem.php">See more</a>
+</html>
+<?php
+include('connectdb.php');
+$query = "SELECT * FROM kid_section";
+$run_query = $conn->query($query);
+echo '<div class="display-section">';
+if ($run_query->num_rows) {
+    while ($row = $run_query->fetch_assoc()) {
+        $img = $row['image'];
+        $cat = $row['category'];
+        $name = $row['cloth-name'];
+        $prize = $row['prize'];
+        echo '<div class="container display-item">'; // Add the new CSS class to the parent div
+        echo '<div class="container-img" style="background-image: url(./kids_clothes/' . $img . ');"></div>
+            <div class="details">
+                <span class="category">' . $cat . '</span><br>
+                <span class="cloth-name">' . $name . '</span><br>
+                <span class="prize">M.R.P: ' . $prize . '</span><br>
+                <span class="neon-text">Free delivery</span>
             </div>
-        </a>
-        </div>
-        <div class="box2 box">
-            <div class="box-content">
-                <h2>Health & personal care</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box2_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box3 box">
-            <div class="box-content">
-                <h2>Furniture</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box3_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="signin box">
-            <div class="box-content">
-                <h2>Sign in for the best Experience</h2>
-                <div class="box-img">
-                    <button class="signin_button" onclick="window.location.href = 'signin.php'">Sign in Securely</button>
+            <div class="button content">
+                <div class="button-container">
+                    <form action="additem.php" method="post" class="add-to-cart-form">
+                    <input type="hidden" name="image" value="' . $img . '">
+                    <input type="hidden" name="name" value="' . $name . '">
+                    <input type="hidden" name="prize" value="' . $prize . '">
+                        <button type="submit" class="cart-button" onclick="add_cart()">Add to cart</button>
+                    </form>
+                    <div class="quan-content">
+                    <strong>Quantity</strong>
+                        <select name="quantity" class="quan">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <button class="free-look">Free look</button>
                 </div>
-                <a>See more</a>
             </div>
-        </div>
-        <div class="box4 box">
-            <div class="box-content">
-                <h2>Electronics</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box4_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box5 box">
-            <div class="box-content">
-                <h2>Beauty Picks</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box5_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
+            
+        </div>';
+    }
+}
+echo '</div>';
+?>
 
-        </div>
-        <div class="box6 box">
-            <div class="box-content">
-                <h2>Pet Care</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box6_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box7 box">
-            <div class="box-content">
-                <h2>Books and Stationery</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box7_image.webp);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box8 box">
-            <div class="box-content">
-                <h2>Discover Fashion Trends</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box8_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box9 box">
-            <div class="box-content">
-                <h2>Sports Outlet</h2><a href="">
-                <div class="box-img" style="background-image: url(./imgs/box9_image.jpg);"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box11 box">
-            <div class="box-content">
-                <h2>Gadgets and Accessories</h2><a href="">
-                <div class="box-img" style="background-image: url();"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-        <div class="box12 box">
-            <div class="box-content">
-                <h2>Fitness and Wellness</h2><a href="">
-                <div class="box-img" style="background-image: url();"></div>
-            </a>
-                <a>See more</a>
-            </div>
-        </div>
-    </div>
-    <footer>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $img = $_POST['image'] ?? '';
+        $name = $_POST['name'] ?? '';
+        $prize = $_POST['prize'] ?? '';
+
+        $host= 'localhost';
+        $username='root';
+        $password1='';
+        $dbname='coders';   
+
+        
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password1);
+
+        /* $stmt = $pdo->prepare("SELECT quantity FROM cart WHERE  (image, name, prize) VALUES (:image, :name, :prize)"); */
+
+        $stmt = $pdo->prepare("INSERT INTO cart (image, name, prize,quantity) VALUES (:image, :name, :prize,1) ON DUPLICATE KEY UPDATE quantity = quantity + 1");
+        
+        
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':image', $img);
+        $stmt->bindParam(':prize', $prize);
+                
+                
+        $stmt->execute();
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<footer>
         <div class="foot-panel1">
             <span>Back to top</span>
         </div>
@@ -282,6 +255,6 @@
             </div>
         </div>
     </footer>
+    
 </body>
-
 </html>

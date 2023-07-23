@@ -77,15 +77,38 @@
                 All
             </div>
             <div class="panel-ops">
-                <p class="border">Today's Deals</p>
-                <p class="border">Customer Service</p>
-                <p class="border">Registry</p>
-                <p class="border">Gift Cards</p>
-                <p class="border">Sell</p>
-            </div>
-            <div class="panel-deals">
-                <p class="border">Shop deals in Electronics</p>
-            </div>
+            <div class="dropdown">
+                <p class="border">Clothes</p>
+                <div class="dropdown-content" >
+                    <a href="">Mens</a>
+                    <a href="">Womens</a>
+                    <a href="">Kids</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <p class="border">Furniture</p>
+                <div class="dropdown-content" style="left: 200px;">
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <p class="border">Electronics</p>
+                <div class="dropdown-content" style="left: 300px;">
+                    <a href="">222222</a>
+                    <a href="">444444</a>
+                    <a href="">444444</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <p class="border">Books</p>
+                <div class="dropdown-content" style="left: 400px;">
+                    <a href="">Horror</a>
+                    <a href="">Horror</a>
+                    <a href="">Horror</a>
+                </div>
+                </div>
         </div>
     </header>
     <script src="cart.js"></script>
@@ -119,6 +142,14 @@ if ($run_query->num_rows) {
                     <input type="hidden" name="prize" value="' . $prize . '">
                         <button type="submit" class="cart-button" onclick="add_cart()">Add to cart</button>
                     </form>
+                    <div class="quan-content">
+                    <strong>Quantity</strong>
+                        <select name="quantity" class="quan">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
                     <button class="free-look">Free look</button>
                 </div>
             </div>
