@@ -19,3 +19,6 @@ INSERT INTO `women_section`(`image`, `category`, `cloth-name`, `prize`) VALUES (
 
 # kid-section
 INSERT INTO `kid_section`(`image`, `category`, `cloth-name`, `prize`) VALUES ('kid-shirt1.jpg','Kid Shirt','Max','299'), ('kid-shirt2.jpg','Kid Shirt','Icable','199'), ('kid-skirt1.jpg','Kid Skirt','Pw platypus','299'), ('kid-tshirt1.jpg','Kid T-shirt','Max','299'), ('kid-shirt1.jpg','Kid Shirt','Max','299'), ('kid-combo1.jpg','Kid Combo','Real basics','199'), ('kid-combo2.jpg','Kid Combo','Ariel','199');
+
+# book-section
+INSERT INTO `book_section`(`image`, `name`, `prize`) VALUES ('book1.jpg','Tom Hanks','399'), ('book2.jpg','Kunex','399'), ('book3.jpg','Emily Henry','399'), ('book4.jpg','Rebacca','399'), ('book5.jpg','Holly Jackson','599');
