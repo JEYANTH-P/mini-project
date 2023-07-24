@@ -16,6 +16,7 @@
 
 <body>
 <header>
+    
         <div class="navbar">
             <div class="nav-logo border">
                 <div class="logo" onclick="window.location.href = 'homepage.html'"></div>
@@ -114,17 +115,22 @@
     </header>
 
     <body>
+        <div class="con">
         <?php
         include('connectdb.php');
         $query = "SELECT * FROM cart";
         $run_query = $conn->query($query);
+        
         echo '<div class="display-section">';
+        $total = 0;
         if ($run_query->num_rows) {
             while ($row = $run_query->fetch_assoc()) {
                 $img = $row['image'];
                 $name = $row['name'];
                 $prize = $row['prize'];
+                
                 $quantity = $row['quantity'];
+                $total = $total + ((int)$prize*(int)$quantity);
                 echo '<div class="container display-item neonblue-text">'; // Add the new CSS class to the parent div
                 echo '<div class="container-img" style="background-image: url(./men_clothes/' . $img . ');"></div>
             <div class="details ">
@@ -150,6 +156,7 @@
             </div>
             
         </div>';
+        
             }
         }
         else{
@@ -157,9 +164,25 @@
         <img class="cart-empty" src="./img/cart_empty.png" alt="Empty Cart">
         <span>Your Cart is empty</span>
 </div>';
+
         }
+
+        
+        
         echo '</div>';
         ?>
+        
+        <div class="box1 neonblue-text"><h1 class="neon-text">Confirm order</h1>
+        <div style="display: block;" class="total">Total Amount :&nbsp;&nbsp;&nbsp;<?php echo $total; ?>₹</div>
+        <p class="exc">(tax exclusive)</p>
+        <p class="inc">(tax inclusive)</p>
+        <div style="display: block;" class="gst">GST 1%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;<?php echo $total*0.01; ?>₹</div>
+        <div style="display: block;" class="totalin">Total Amount :&nbsp;&nbsp;&nbsp;<s style="color:red;"><?php echo $total+($total*0.01); ?>₹</s></div>
+        <div style="display: block;" class="discount">Total Amount :&nbsp;&nbsp;&nbsp;<b style="color:lightgreen"><?php echo ($total+($total*0.01))-($total+($total*0.01))*0.1; ?>₹</b></div>
+        <button class="payment neonblue-text">Proceed to payment</button> 
+    </div>
+        </div>
+        
 
         <script src="cart.js"></script>
 
@@ -197,9 +220,9 @@
         $name = $_POST['name'] ?? '' ;
         $prize = $_POST['prize'] ?? '' ;
 
-        $host= '10.7.222.73';
-        $username='ab';
-        $password1='123';
+        $host= 'localhost';
+        $username='root';
+        $password1='';
         $dbname='coders';
 
         

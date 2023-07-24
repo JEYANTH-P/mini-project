@@ -1,9 +1,8 @@
 
 
-body{
+.con{
     
-
-    background: linear-gradient(to top left, rgb(84, 30, 170),#0d1117, rgb(2, 2, 40));
+    background: linear-gradient( rgb(84, 30, 170),#0d1117, rgb(2, 2, 40));
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -13,10 +12,13 @@ body{
     border-radius: 20px;
     height: 312px;
     width: 50%;
+    /* margin-left: -20px; */
     background-color: white;
     padding: 10px;
     margin-top: 15px;
-    background-color:#0a0042
+    background-color:#0a0042;
+    position: relative;
+    left:-250px;
 }
 
 .container-img {
@@ -127,4 +129,119 @@ body{
             0 0 50px #939393,
             0 0 75px #939393;
     } */
+}
+
+/* .display-section:not(.box1){
+    display: flex;
+    justify-content: center;
+    background-color: #e2e7e6;
+    flex-wrap: wrap;
+    background: linear-gradient(to top left, rgb(84, 30, 170), rgba(2, 2, 40, 0.662));
+} */
+
+.display-section{
+    background: linear-gradient(to top left,rgb(2, 2, 40),#0d1117, rgb(84, 30, 170));
+}
+
+.box1 {
+    
+    padding: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    color:#fff;
+    background-color:#0a0042;
+    position: fixed;
+    width: 30%;
+    height: 68%;
+    left:1000px;
+    top: 120px; /* Adjust the distance from the top as needed */
+    text-align:center;
+}
+
+.box1 .total{
+    position: relative;
+    font-size: 28px;;
+    top: 60px;
+}
+
+.box1 .gst{
+    position: relative;
+    font-size: 28px;;
+    top: 120px;
+}
+
+.box1 .totalin{
+    position: relative;
+    font-size: 28px;;
+    top: 180px;
+}
+.box1 .discount{
+    position: relative;
+    font-size: 28px;;
+    top: 240px;
+}
+
+.box1 .payment{
+    position: relative;
+    font-size: 28px;;
+    top: 300px;
+}
+
+.box1 .inc{
+    position: relative;
+    top: 180px;
+}
+
+.box1 .exc{
+    position: relative;
+    top: 60px;
+}
+
+.box1 .payment{
+    padding: 2px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: rgb(237, 97, 47)
+}
+
+.box1 .payment:hover{
+    background-color: coral;
+}
+
+.neon-text {
+    color: #fff;
+    text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #ff00de,
+        0 0 70px #ff00de,
+        0 0 80px #ff00de,
+        0 0 100px #ff00de,
+        0 0 150px #ff00de;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #fff,
+            0 0 40px #ff00de,
+            0 0 70px #ff00de,
+            0 0 80px #ff00de,
+            0 0 100px #ff00de,
+            0 0 150px #ff00de;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #fff,
+            0 0 20px #ff00de,
+            0 0 35px #ff00de,
+            0 0 40px #ff00de,
+            0 0 50px #ff00de,
+            0 0 75px #ff00de;
+    }
 }
