@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = '';  
 
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+
         
     $name = $_POST['name'] ?? '';
     $mobile = $_POST['mobile'] ?? '';
@@ -85,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bindParam(':mobile', $mobile);
     $stmt->execute();
     $count2=$stmt->fetchColumn();
-
     
 
         
@@ -103,7 +103,8 @@ if($count1===0 && $count2===0){
             
             
     $stmt->execute();
-    ?><script> document.getElementById('email').parentElement.classList.add("success");
+    ?><script> 
+    document.getElementById('email').parentElement.classList.add("success");
                 document.getElementById('email').parentElement.classList.remove("error");
                  document.getElementById('mobile').parentElement.classList.add("success");
                 document.getElementById('mobile').parentElement.classList.remove("error");

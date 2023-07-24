@@ -105,13 +105,15 @@
                 $img = $row['image'];
                 $name = $row['name'];
                 $prize = $row['prize'];
+                $quantity = $row['quantity'];
                 echo '<div class="container display-item">'; // Add the new CSS class to the parent div
                 echo '<div class="container-img" style="background-image: url(./men_clothes/' . $img . ');"></div>
             <div class="details">
-                <span class="cloth-name">' . $name . '</span><br>
+                <span class="cloth-name neonblue-text">' . $name . '</span><br>
                 <span class="prize">M.R.P: ' . $prize . '</span><br>
-                <span class="neon-text">Free delivery</span>
-            </div>
+                <span class="neon-text message">Free delivery</span>
+                <span class="free-look neon-text">Quantity: ' . $quantity . '</span></span>
+            
             <div class="button content">
                 <div class="button-container">
                     <form action="cart.php" method="post" class="remove-from-cart-form">
@@ -120,8 +122,10 @@
                     <input type="hidden" name="prize" value="' . $prize . '">
                         <button type="submit" class="cart-button" onclick="removeCart()">Remove from cart</button>
                     </form>
-                    <button class="free-look">Free look</button>
+                    
                 </div>
+            </div>
+
             </div>
             
         </div>';
@@ -208,12 +212,11 @@
             } 
         } else {
             // If the quantity is 2 or more, decrement the quantity by one
-            $decrementQuery = "UPDATE cart SET quantity = quantity - 1 WHERE image = :image AND name = :name AND prize = :prize";
+            $decrementQuery = "UPDATE cart SET quantity = quantity-1  WHERE image = :image AND name = :name AND prize = :prize";
             $decrementStmt = $pdo->prepare($decrementQuery);
             $decrementStmt->bindParam(':image', $img, PDO::PARAM_STR);
             $decrementStmt->bindParam(':name', $name, PDO::PARAM_STR);
             $decrementStmt->bindParam(':prize', $prize, PDO::PARAM_INT);
-            $decrementStmt->execute();
             if ($decrementStmt->execute()) {
                 // Redirect back to the same page after the delete operation
                 echo "<script>window.location.href = window.location.href;</script>";

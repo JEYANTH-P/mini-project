@@ -1,17 +1,18 @@
-html{
-    background: linear-gradient(to top left, rgb(84, 30, 170), rgb(2, 2, 40));
+body{
+    background: linear-gradient(to top left, rgb(84, 30, 170),#0d1117, rgb(2, 2, 40));
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .container {
     /* border: 2px solid black; */
-    height: 410px;
+    border-radius: 20px;
+    height: 312px;
     width: 50%;
     background-color: white;
     padding: 10px;
     margin-top: 15px;
-    background-color: #AB90EF;
+    background-color:#0a0042
 }
 
 .container-img {
@@ -20,4 +21,77 @@ html{
     background-size: cover;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.cloth-name {
+    display: inline-block;
+    font-size: 220%;
+    font-weight: 750;
+    color: #f90000;
+    margin: 38px 72px;
+}
+.prize {
+    font-size: 23px;
+    color: #E6EF69;
+    margin: 8px 131px;
+    display: inline-block;
+}
+.details{
+    position: relative;
+    left: 16em;
+    bottom: 18em;
+}
+
+.free-look{
+    font-size: 15px;
+}
+
+.message {
+    display: inline-block;
+    margin: -28px 82px;
+}
+
+.button-container button {
+    padding: 8px;
+    border-radius: 10px;
+    margin: 119px -66px;
+    background-color: coral;
+}
+
+.neonblue-text {
+    color: #939aff;
+    text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #939393,
+        0 0 70px #939393,
+        0 0 80px #939393,
+        0 0 100px #939393,
+        0 0 150px #939393;
+    animation: neonblue-glow 1.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes neonblue-glow {
+    0% {
+        text-shadow: 0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #fff,
+            0 0 40px #939393,
+            0 0 70px #939393,
+            0 0 80px #939393,
+            0 0 100px #939393,
+            0 0 150px #939393;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 15px #fff,
+            0 0 20px #939393,
+            0 0 35px #939393,
+            0 0 40px #939393,
+            0 0 50px #939393,
+            0 0 75px #939393;
+    }
 }
