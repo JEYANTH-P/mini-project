@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header>
+<header>
         <div class="navbar">
             <div class="nav-logo border">
                 <div class="logo" onclick="window.location.href = 'homepage.html'"></div>
@@ -28,6 +28,7 @@
                 </div>
 
             </div>
+            <form action="search.php" method="post">
             <div class="nav-search">
                 <select class="search-select" name="" id="">
                     <option value="">All</option>
@@ -42,12 +43,13 @@
                     <option value="">Beauty picks</option>
                     <option value="">Health and personal care</option>
                 </select>
-                <form action="search.php" method="post"></form>
+                
                 <input class="search-input" type="text" placeholder="Search Amazon" name="keywords">
-                <div class="search-icon">
+                <button class="search-icon" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                </form>
+                </button>
+            </form>
+                
             </div>
             <div class="nav-flag">
                 <div>
@@ -69,15 +71,10 @@
                 <p class="nav-second">& Orders</p>
             </div>
 
-            <!-- <div class="nav-cart border">
-                <i class="fa-solid fa-cart-shopping"></i>
-                Cart
-            </div> -->
             <div class="nav-cart border"><a href="cart.php">
                 <i class="fa-solid fa-cart-shopping"><span class="cart-number"  id="cart">0</span></i>
                 Cart</a>
             </div>
-
         </div>
         <div class="panel border">
             <div class="panel-all">
@@ -85,14 +82,33 @@
                 All
             </div>
             <div class="panel-ops">
-                <p class="border">Today's Deals</p>
-                <p class="border">Customer Service</p>
-                <p class="border">Registry</p>
-                <p class="border">Gift Cards</p>
-                <p class="border">Sell</p>
-            </div>
-            <div class="panel-deals">
-                <p class="border">Shop deals in Electronics</p>
+                <div class="dropdown">
+                <p class="border">Clothes</p>
+                <div class="dropdown-content" >
+                    <a href="additem.php">Mens</a>
+                    <a href="women.php">Womens</a>
+                    <a href="kid.php">Kids</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <p class="border">Furniture</p>
+                <div class="dropdown-content" style="left: 27em;">
+                    <a href="">1</a>
+                    <a href="">1</a>
+                    <a href="">1</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <p class="border">Electronics</p>
+                <div class="dropdown-content" style="left: 33em;">
+                    <a href="">222222</a>
+                    <a href="">444444</a>
+                    <a href="">444444</a>
+                </div>
+                </div>
+                <div class="dropdown">
+                <a href="book.php" style="color: white;"><p class="border">Books</p></a>
+                </div>
             </div>
         </div>
     </header>
@@ -136,6 +152,12 @@
         </div>';
             }
         }
+        else{
+            echo '<div class="img-container">
+        <img class="cart-empty" src="./img/cart_empty.png" alt="Empty Cart">
+        <span>Your Cart is empty</span>
+</div>';
+        }
         echo '</div>';
         ?>
 
@@ -175,9 +197,9 @@
         $name = $_POST['name'] ?? '' ;
         $prize = $_POST['prize'] ?? '' ;
 
-        $host= 'localhost';
-        $username='root';
-        $password1='';
+        $host= '10.7.222.73';
+        $username='ab';
+        $password1='123';
         $dbname='coders';
 
         
