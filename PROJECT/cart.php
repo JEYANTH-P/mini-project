@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -106,12 +109,12 @@
                 $name = $row['name'];
                 $prize = $row['prize'];
                 $quantity = $row['quantity'];
-                echo '<div class="container display-item">'; // Add the new CSS class to the parent div
+                echo '<div class="container display-item neonblue-text">'; // Add the new CSS class to the parent div
                 echo '<div class="container-img" style="background-image: url(./men_clothes/' . $img . ');"></div>
-            <div class="details">
-                <span class="cloth-name neonblue-text">' . $name . '</span><br>
+            <div class="details ">
+                <span class="cloth-name ">' . $name . '</span><br>
                 <span class="prize">M.R.P: ' . $prize . '</span><br>
-                <span class="neon-text message">Free delivery</span>
+                <span class="neon-text message">Free delivery available</span>
                 <span class="free-look neon-text">Quantity: ' . $quantity . '</span></span>
             
             <div class="button content">
@@ -120,7 +123,9 @@
                     <input type="hidden" name="image" value="' . $img . '">
                     <input type="hidden" name="name" value="' . $name . '">
                     <input type="hidden" name="prize" value="' . $prize . '">
-                        <button type="submit" class="cart-button" onclick="removeCart()">Remove from cart</button>
+                        <button type="submit" class="cart-button" onclick="removeCart()"> <span class="close-button" >
+                        <i class="fas fa-times"></i>
+                    </span></button>
                     </form>
                     
                 </div>
