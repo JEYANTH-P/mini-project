@@ -1,0 +1,16 @@
+// mens-section
+
+INSERT INTO `products`(`image`, `category`, `name`, `prize`, `keywords`) VALUES ('men-shirt1.jpg', 'Mens Shirt', 'Dennis Lingo', 499,'shirt men clothes dennis lingo'), ('men-shirt2.jpg', 'Mens Shirt', 'Denim Co', 399,'shirt men clothes denim co'), ('men-shirt3.jpg', 'Mens Shirt', 'Denim Co', 499,'men clothes shirt denim co'), ('men-track1.jpg', 'Mens Track', 'Puma', 599,'track men clothes puma'), ('men-track2.jpg', 'Mens Track', 'Alan Jones', 599,'men clothes track alan jones'), ('men-track3.jpg', 'Mens Track', 'Allen Solly', 799,'men clothes track allen solly'), ('men-tshirt1.jpg', 'Mens T-shirt', 'Lyriq', 299,'men clothes tshirt lyriq'), ('men-tshirt2.jpg', 'Mens T-shirt', 'Lymio', 399,'men clothes tshirt lymio'), ('men-tshirt3.jpg', 'Mens T-shirt', 'Lymio', 199,'men clothes tshirt lymio'), ('men-jeans1.jpg', 'Mens Jeans', 'Peter England', 599,'men clothes jeans peter england'), ('men-jeans2.jpg', 'Mens Jeans', 'Pepe Jeans', 699,'men clothes jeans pepe'), ('men-jeans3.jpg', 'Mens Jeans', 'Levis', 599,'men clothes levis jeans');
+
+// womens-section
+
+INSERT INTO `products`(`image`, `category`, `name`, `prize`, `keywords`) VALUES ('women-saree1.jpg','Womens Saree','Gosriki','299','women clothes saree gosriki'), ('women-saree2.jpg','Womens Saree','Srill','399','women clothes saree srill'), ('women-saree3.jpg','Womens Saree','SGF11','299','women clothes saree sgf11'), ('women-kurtha1.jpg','Womens Kurtha','Gosriki','199','women clothes gosriki kurtha'), ('women-kurtha2.jpg','Womens Kurtha','Gosriki','199','women clothes kurtha gosriki'), ('women-kurtha3.jpg','Womens Kurtha','Gosriki','299','women clothes kurtha gosriki'), ('women-jeans1.jpg','Womens Jeans','Aka chic','499','women clothes jeans aka chic'), ('women-jeans2.jpg','Womens Jeans','Aka chic','399','women jeans aka chic clothes'), ('women-jeans3.jpg','Womens Jeans','Miss Chase','599','women clothes jeans miss chase');
+
+// kids-section
+
+INSERT INTO `products`(`image`, `category`, `name`, `prize`, `keywords`) VALUES ('kid-shirt1.jpg','Kids Shirt','Max','299','kid clothes shirt max'), ('kid-shirt2.jpg','Kids Shirt','Icable','259','kid clothes shirt icable'), ('kid-skirt1.jpg','Kids Skirt','Pw platypus','199','kid clothes pw platypus skirt'), ('kid-tshirt1.jpg','Kids T-shirt','Max','159','kid clothes tshirt max'), ('kid-combo1.jpg','Kids Combo','Real basics','499','kid clothes combo real basics'), ('kid-combo2.jpg','Kids Combo','Ariel','399','kid clothes combo ariel');
+
+// books-section
+
+INSERT INTO `products`(`image`, `category`, `name`, `prize`, `keywords`) VALUES ('book1.jpg','Book','Tom Hanks','599','books tom hanks'), ('book2.jpg','Book','Kunex','399','books kunex'), ('book3.jpg','Book','Emily Henry','459','books emily henry'), ('book4.jpg','Book','Rebacca','399','rebacca books'), ('book5.jpg','Book','Holly Jackson','699','holly jackson books');
+
